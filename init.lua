@@ -679,6 +679,8 @@ require('lazy').setup({
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
       require('mason-lspconfig').setup {
+        ensure_installed = { 'lua_ls', 'tsserver', 'rust_analyzer', 'pylsp' },
+        automatic_installation = true,
         handlers = {
           function(server_name)
             local server = servers[server_name] or {}
@@ -957,7 +959,6 @@ require('lazy').setup({
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   { import = 'custom.plugins.init' },
-  --
   -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
   -- Or use telescope!
   -- In normal mode type `<space>sh` then write `lazy.nvim-plugin`
